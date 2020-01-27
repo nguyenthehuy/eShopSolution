@@ -1,4 +1,3 @@
-﻿
 # ASP.NET Core 3.1 from Tedu
 ## Technology used
 - ASP.NET 3.1
