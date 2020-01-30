@@ -1,4 +1,5 @@
-﻿using eShopSolution.Data.Entities;
+﻿using eShopSolution.Data.Configurations;
+using eShopSolution.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,22 @@ namespace eShopSolution.Data.EF
         {
 
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new CartConfigration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryTranslationConfiguration());
+            modelBuilder.ApplyConfiguration(new ContactConfiguration());
+            modelBuilder.ApplyConfiguration(new LanguageConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductInCategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductTranslationConfiguration());
+            modelBuilder.ApplyConfiguration(new PromotionsConfiguration());
+            modelBuilder.ApplyConfiguration(new TransationConfiguration());
+        }
         public DbSet<Product> Products;
         public DbSet<AppConfig> AppConfigs;
         public DbSet<Cart> Carts;
@@ -22,7 +39,7 @@ namespace eShopSolution.Data.EF
         public DbSet<Order> Orders;
         public DbSet<OrderDetail> OrderDetails;
         public DbSet<ProductInCategory>  ProductInCategories;
-        public DbSet<ProductTransaction> ProductTransactions;
+        public DbSet<ProductTranslation> ProductTranslations;
         public DbSet<Promotion> Promotions;
         public DbSet<Transaction> Transactions;
 
