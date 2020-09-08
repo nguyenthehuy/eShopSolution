@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace eShopSolution.Data.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -56,8 +56,7 @@ namespace eShopSolution.Data.Migrations
                 name: "Languages",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<string>(unicode: false, maxLength: 5, nullable: false),
                     Name = table.Column<string>(maxLength: 20, nullable: false),
                     IsDefault = table.Column<bool>(nullable: false)
                 },
@@ -72,7 +71,7 @@ namespace eShopSolution.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DateOrder = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 1, 31, 0, 57, 53, 130, DateTimeKind.Local).AddTicks(4814)),
+                    DateOrder = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 2, 10, 15, 38, 50, 514, DateTimeKind.Local).AddTicks(8564)),
                     UserId = table.Column<Guid>(nullable: false),
                     ShipName = table.Column<string>(maxLength: 200, nullable: false),
                     ShipAddress = table.Column<string>(maxLength: 200, nullable: false),
@@ -154,7 +153,7 @@ namespace eShopSolution.Data.Migrations
                     Name = table.Column<string>(maxLength: 200, nullable: false),
                     SeoDescription = table.Column<string>(maxLength: 500, nullable: false),
                     SeoTitle = table.Column<string>(maxLength: 200, nullable: false),
-                    LanguageId = table.Column<int>(unicode: false, maxLength: 5, nullable: false),
+                    LanguageId = table.Column<string>(unicode: false, maxLength: 5, nullable: false),
                     SeoAlias = table.Column<string>(maxLength: 200, nullable: false)
                 },
                 constraints: table =>
@@ -260,7 +259,7 @@ namespace eShopSolution.Data.Migrations
                     SeoDescription = table.Column<string>(nullable: true),
                     SeoTitle = table.Column<string>(nullable: true),
                     SeoAlias = table.Column<string>(maxLength: 200, nullable: false),
-                    LanguageId = table.Column<int>(unicode: false, maxLength: 5, nullable: false)
+                    LanguageId = table.Column<string>(unicode: false, maxLength: 5, nullable: false)
                 },
                 constraints: table =>
                 {

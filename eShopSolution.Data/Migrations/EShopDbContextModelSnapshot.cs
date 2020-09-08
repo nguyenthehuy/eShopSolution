@@ -104,8 +104,9 @@ namespace eShopSolution.Data.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("LanguageId")
-                        .HasColumnType("int")
+                    b.Property<string>("LanguageId")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)")
                         .HasMaxLength(5)
                         .IsUnicode(false);
 
@@ -176,10 +177,10 @@ namespace eShopSolution.Data.Migrations
 
             modelBuilder.Entity("eShopSolution.Data.Entities.Language", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar(5)")
+                        .HasMaxLength(5)
+                        .IsUnicode(false);
 
                     b.Property<bool>("IsDefault")
                         .HasColumnType("bit");
@@ -206,7 +207,7 @@ namespace eShopSolution.Data.Migrations
                     b.Property<DateTime>("DateOrder")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 1, 31, 0, 57, 53, 130, DateTimeKind.Local).AddTicks(4814));
+                        .HasDefaultValue(new DateTime(2020, 2, 10, 15, 38, 50, 514, DateTimeKind.Local).AddTicks(8564));
 
                     b.Property<string>("ShipAddress")
                         .IsRequired()
@@ -329,8 +330,9 @@ namespace eShopSolution.Data.Migrations
                         .HasColumnType("nvarchar(500)")
                         .HasMaxLength(500);
 
-                    b.Property<int>("LanguageId")
-                        .HasColumnType("int")
+                    b.Property<string>("LanguageId")
+                        .IsRequired()
+                        .HasColumnType("varchar(5)")
                         .HasMaxLength(5)
                         .IsUnicode(false);
 
